@@ -45,8 +45,6 @@ describe("POC tests", () => {
       const beforeTitle = getResponse.body.title;
       //   const beforeBody = getResponse.body;
       //   console.log(beforeBody);
-      console.log(beforeTitle);
-
       const response = await request.put("/posts/1").send(data);
       console.log(response.body);
       expect(response.body.title).not.toBe(beforeTitle);
@@ -63,10 +61,9 @@ describe("POC tests", () => {
       const getResponse = await request.get("/posts/1");
 
       const beforeTitle = getResponse.body.title;
-      console.log(beforeTitle);
 
       const response = await request.patch("/posts/1").send(data);
-      console.log(response.body);
+
       expect(response.body.title).not.toBe(beforeTitle);
       expect(response.body.title).toBe(data.title);
     });
