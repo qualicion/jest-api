@@ -27,7 +27,6 @@ describe("POC tests", () => {
         userId: 1,
       };
       const response = await request.post("/posts").send(data);
-      console.log(response.body);
       expect(response.body.title).toBe(data.title);
     });
   });
@@ -46,7 +45,6 @@ describe("POC tests", () => {
       //   const beforeBody = getResponse.body;
       //   console.log(beforeBody);
       const response = await request.put("/posts/1").send(data);
-      console.log(response.body);
       expect(response.body.title).not.toBe(beforeTitle);
       expect(response.body.title).toBe(data.title);
     });
