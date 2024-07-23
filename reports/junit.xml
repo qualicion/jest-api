@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="24" failures="0" errors="0" time="12.351">
+  <testsuite name="POC tests" errors="0" failures="0" skipped="0" timestamp="2024-07-23T09:36:22" time="5.139" tests="6">
+    <testcase classname="POC tests GET requests GET /posts" name="POC tests GET requests GET /posts" time="0.159">
+    </testcase>
+    <testcase classname="POC tests GET requests GET /comment with query params" name="POC tests GET requests GET /comment with query params" time="0.035">
+    </testcase>
+    <testcase classname="POC tests POST requests POST /post  " name="POC tests POST requests POST /post  " time="0.144">
+    </testcase>
+    <testcase classname="POC tests PUT requests PUT /post/1  " name="POC tests PUT requests PUT /post/1  " time="0.354">
+    </testcase>
+    <testcase classname="POC tests PATCH requests PATCH /post/1  " name="POC tests PATCH requests PATCH /post/1  " time="0.344">
+    </testcase>
+    <testcase classname="POC tests DELETE requests DELETE /post/:id" name="POC tests DELETE requests DELETE /post/:id" time="0.298">
+    </testcase>
+  </testsuite>
+  <testsuite name="Upload file" errors="0" failures="0" skipped="0" timestamp="2024-07-23T09:36:22" time="6.266" tests="2">
+    <testcase classname="Upload file POST /upload/single" name="Upload file POST /upload/single" time="1.216">
+    </testcase>
+    <testcase classname="Upload file POST /upload/multiple" name="Upload file POST /upload/multiple" time="1.217">
+    </testcase>
+  </testsuite>
+  <testsuite name="Categories" errors="0" failures="0" skipped="0" timestamp="2024-07-23T09:36:22" time="9.068" tests="4">
+    <testcase classname="Categories Display categories GET /categories" name="Categories Display categories GET /categories" time="1.013">
+    </testcase>
+    <testcase classname="Categories Create category POST /categories" name="Categories Create category POST /categories" time="0.491">
+    </testcase>
+    <testcase classname="Categories Update category PUT categories/id" name="Categories Update category PUT categories/id" time="0.479">
+    </testcase>
+    <testcase classname="Categories Delete category DEL categories/id" name="Categories Delete category DEL categories/id" time="0.493">
+    </testcase>
+  </testsuite>
+  <testsuite name="Brands" errors="0" failures="0" skipped="0" timestamp="2024-07-23T09:36:22" time="11.948" tests="12">
+    <testcase classname="Brands Fetch brands Check brands, number of brands &amp; key pairs" name="Brands Fetch brands Check brands, number of brands &amp; key pairs" time="1.29">
+    </testcase>
+    <testcase classname="Brands Create brand POST /brands" name="Brands Create brand POST /brands" time="0.002">
+    </testcase>
+    <testcase classname="Brands Create brand Schema validation - Name is a mandatory field" name="Brands Create brand Schema validation - Name is a mandatory field" time="0.308">
+    </testcase>
+    <testcase classname="Brands Create brand Schema validation - Minimum character length should be &gt; 1" name="Brands Create brand Schema validation - Minimum character length should be &gt; 1" time="0.296">
+    </testcase>
+    <testcase classname="Brands Create brand Business logic - Duplicate brand entries" name="Brands Create brand Business logic - Duplicate brand entries" time="0.788">
+    </testcase>
+    <testcase classname="Brands Fetch individual brand GET by brand/:id Business logic - GET invalid brand/:id" name="Brands Fetch individual brand GET by brand/:id Business logic - GET invalid brand/:id" time="0.38">
+    </testcase>
+    <testcase classname="Brands Fetch individual brand GET by brand/:id GET by brand/:id" name="Brands Fetch individual brand GET by brand/:id GET by brand/:id" time="0.388">
+    </testcase>
+    <testcase classname="Brands Update brand Update brand using PUT method" name="Brands Update brand Update brand using PUT method" time="0.485">
+    </testcase>
+    <testcase classname="Brands Update brand Update brand name with over 30 characters" name="Brands Update brand Update brand name with over 30 characters" time="0.285">
+    </testcase>
+    <testcase classname="Brands Update brand Business logic - throw error updating invalid brand" name="Brands Update brand Business logic - throw error updating invalid brand" time="0.295">
+    </testcase>
+    <testcase classname="Delete brand Delete brand using DELETE method" name="Delete brand Delete brand using DELETE method" time="0.479">
+    </testcase>
+    <testcase classname="Delete brand Business logic - throw error deleting invalid brand" name="Delete brand Business logic - throw error deleting invalid brand" time="0.314">
+    </testcase>
+  </testsuite>
+</testsuites>
