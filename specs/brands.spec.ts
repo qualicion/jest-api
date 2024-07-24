@@ -2,7 +2,7 @@ import brandController from "../controller/brand.controller";
 import data, {
   generateBrandData,
   emptyBrandData,
-  minimumBrandData,
+  minimumCharacterBrandData,
   longStringBrandData,
   invalidBrandData,
 } from "../data/brand.data";
@@ -54,7 +54,7 @@ describe("Brands", () => {
     });
 
     it("Schema validation - Minimum character length should be > 1", async () => {
-      const brand = minimumBrandData[0];
+      const brand = minimumCharacterBrandData[0];
 
       const response = await brandController.postBrand(brand);
 
