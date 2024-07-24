@@ -11,7 +11,6 @@ describe("POC tests", () => {
     });
 
     it("GET /comment with query params", async () => {
-      //const response = await request.get("comments?postId=1");
       const response = await request
         .get("/comments")
         .query({ postId: 1, limit: 10 });
@@ -42,8 +41,7 @@ describe("POC tests", () => {
       const getResponse = await request.get("/posts/1");
 
       const beforeTitle = getResponse.body.title;
-      //   const beforeBody = getResponse.body;
-      //   console.log(beforeBody);
+
       const response = await request.put("/posts/1").send(data);
       expect(response.body.title).not.toBe(beforeTitle);
       expect(response.body.title).toBe(data.title);
