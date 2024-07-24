@@ -15,7 +15,7 @@ export const emptyBrandData = [
   },
 ];
 
-export const minimumBrandData = [
+export const minimumCharacterBrandData = [
   {
     name: "a",
     description: "Test Brand Description",
