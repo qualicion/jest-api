@@ -7,7 +7,12 @@ import data, {
   invalidBrandData,
 } from "../data/brand.data";
 
-import {brandDeleteInvalidErrorMessage,brandUpdateErrorMessage, brandTooLongErrorMessage} from "../data/message.data"
+import {
+  brandDeleteInvalidErrorMessage,
+  brandUpdateErrorMessage,
+  brandTooLongErrorMessage,
+  brandNotFoundErrorMessage,
+} from "../data/message.data";
 
 describe("Brands", () => {
   describe("Fetch brands", () => {
@@ -40,7 +45,7 @@ describe("Brands", () => {
     });
 
     it("Schema validation - Name is a mandatory field", async () => {
-      const brand = emptyBrandData();
+      const brand = emptyBrandData[0];
 
       const response = await brandController.postBrand(brand);
 
@@ -49,7 +54,7 @@ describe("Brands", () => {
     });
 
     it("Schema validation - Minimum character length should be > 1", async () => {
-      const brand = minimumBrandData();
+      const brand = minimumBrandData[0];
 
       const response = await brandController.postBrand(brand);
 
@@ -85,7 +90,7 @@ describe("Brands", () => {
           data.unavailableBrandId[0]
         );
         expect(response.statusCode).toEqual(404);
-        expect(response.body.error).toContain("Brand not found.");
+        expect(response.body.error).toContain(brandNotFoundErrorMessage.error);
       });
 
       it("GET by brand/:id", async () => {
@@ -118,30 +123,26 @@ describe("Brands", () => {
     });
 
     it("Update brand name with over 30 characters", async () => {
-      const brandLongString = longStringBrandData();
-
-      const errorMessage = brandTooLongErrorMessage()
-
+      const brandLongString = longStringBrandData[0];
       const response = await brandController.putBrands(
         postBrand.body._id,
         brandLongString
       );
 
       expect(response.statusCode).toEqual(422);
-      expect(response.body).toEqual(errorMessage);
+      expect(response.body).toEqual(brandTooLongErrorMessage);
       expect(typeof response.body.error).toBe("string");
     });
 
     it("Business logic - throw error updating invalid brand", async () => {
-      const brand = invalidBrandData();
-      const errorMessage = brandUpdateErrorMessage();
+      const brand = invalidBrandData[0];
       const response = await brandController.putBrands(
         data.invalidBrandId[1],
         brand
       );
 
       expect(response.statusCode).toEqual(422);
-      expect(response.body).toEqual(errorMessage);
+      expect(response.body).toEqual(brandUpdateErrorMessage);
     });
   });
 });
@@ -163,10 +164,9 @@ describe("Delete brand", () => {
   });
 
   it("Business logic - throw error deleting invalid brand", async () => {
-    const errorMessage = brandDeleteInvalidErrorMessage();
     const response = await brandController.deleteBrands(data.invalidBrandId[1]);
 
     expect(response.statusCode).toEqual(422);
-    expect(response.body).toEqual(errorMessage);
+    expect(response.body).toEqual(brandDeleteInvalidErrorMessage);
   });
 });
