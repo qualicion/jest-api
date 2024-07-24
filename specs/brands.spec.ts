@@ -1,5 +1,5 @@
 import brandController from "../controller/brand.controller";
-import config from "../config/base.config";
+import data from "../data/brand.data";
 
 describe("Brands", () => {
   describe("Fetch brands", () => {
@@ -82,7 +82,7 @@ describe("Brands", () => {
       });
 
       it("Business logic - GET invalid brand/:id", async () => {
-        const response = await brandController.getBrandById(config.invalidBrandId[0]);
+        const response = await brandController.getBrandById(data.unavailableBrandId[0]);
         expect(response.statusCode).toEqual(404);
         expect(response.body.error).toContain("Brand not found.");
       });
@@ -175,7 +175,7 @@ describe("Delete brand", () => {
       error: "Unable to delete brand",
     };
 
-    const response = await brandController.deleteBrands("643fc976bf61a969820eb7boo");
+    const response = await brandController.deleteBrands(data.invalidBrandId[1]);
 
     expect(response.statusCode).toEqual(422);
     expect(response.body).toEqual(errorMessage);
