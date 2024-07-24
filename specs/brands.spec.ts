@@ -12,7 +12,7 @@ import {
   brandUpdateErrorMessage,
   brandTooLongErrorMessage,
   brandNotFoundErrorMessage,
-} from "../data/message.data";
+} from "../data/brand.error.message";
 
 describe("Brands", () => {
   describe("Fetch brands", () => {
