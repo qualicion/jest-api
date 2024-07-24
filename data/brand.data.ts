@@ -8,21 +8,28 @@ export const generateBrandData = () => ({
   description: "Test Brand Description",
 });
 
-export const emptyBrandData = () => ({
-  name: "",
-  description: "Test Brand Description",
-});
+export const emptyBrandData = [
+  {
+    name: "",
+    description: "Test Brand Description",
+  },
+];
 
-export const minimumBrandData = () => ({
-  name: "a",
-  description: "Test Brand Description",
-});
+export const minimumBrandData = [
+  {
+    name: "a",
+    description: "Test Brand Description",
+  },
+];
 
-export const longStringBrandData = () => ({
-  name: "This is a string that is definitely over thirty characters long.",
-});
+export const longStringBrandData = [
+  {
+    name: "This is a string that is definitely over thirty characters long.",
+  },
+];
 
-
-export const invalidBrandData = () => ({
-  name: "invalid brand",
-});
+export const invalidBrandData = [
+  {
+    name: "invalid brand",
+  },
+];
