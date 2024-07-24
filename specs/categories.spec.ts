@@ -1,4 +1,5 @@
-import config from "../config/base.config";
+import loginConfig from "../config/credentials.config";
+
 import categoriesController from "../controller/categories.controller";
 import { getCategoryId, login, createCategory } from "../utils/helper";
 
@@ -16,7 +17,7 @@ describe("Categories", () => {
     let token, category;
 
     beforeAll(async () => {
-      token = await login(config.email, config.password);
+      token = await login(loginConfig.email, loginConfig.password);
     });
 
     it("POST /categories", async () => {
@@ -30,7 +31,7 @@ describe("Categories", () => {
     let token, categoryId;
 
     beforeAll(async () => {
-      token = await login(config.email, config.password);
+      token = await login(loginConfig.email, loginConfig.password);
       categoryId = await getCategoryId(token);
     });
 
@@ -51,7 +52,7 @@ describe("Categories", () => {
     let token, categoryId;
 
     beforeAll(async () => {
-      token = await login(config.email, config.password);
+      token = await login(loginConfig.email, loginConfig.password);
       categoryId = await getCategoryId(token);
     });
 
