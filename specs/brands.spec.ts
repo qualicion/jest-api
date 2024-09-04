@@ -4,7 +4,7 @@ import data, {
   emptyBrandData,
   minimumCharacterBrandData,
   longStringBrandData,
-  invalidBrandData,
+  invalidBrand,
 } from "../data/brand.data";
 
 import {
@@ -54,9 +54,7 @@ describe("Brands", () => {
     });
 
     it("Schema validation - Minimum character length should be > 1", async () => {
-      const brand = minimumCharacterBrandData[0];
-
-      const response = await brandController.postBrand(brand);
+      const response = await brandController.postBrand(minimumCharacterBrandData);
 
       expect(response.statusCode).toEqual(422);
       expect(response.body.error).toEqual("Brand name is too short");
@@ -123,10 +121,9 @@ describe("Brands", () => {
     });
 
     it("Update brand name with over 30 characters", async () => {
-      const brandLongString = longStringBrandData[0];
       const response = await brandController.putBrands(
         postBrand.body._id,
-        brandLongString
+        longStringBrandData
       );
 
       expect(response.statusCode).toEqual(422);
@@ -135,10 +132,9 @@ describe("Brands", () => {
     });
 
     it("Business logic - throw error updating invalid brand", async () => {
-      const brand = invalidBrandData[0];
       const response = await brandController.putBrands(
         data.invalidBrandId[1],
-        brand
+        invalidBrand
       );
 
       expect(response.statusCode).toEqual(422);
