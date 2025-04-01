@@ -32,7 +32,7 @@ class CategoriesController {
 
   putCategories(id: string, data: { [key: string]: string | Object }) {
     return request
-      .put("/categories/" + id)
+      .put(`/categories/${id}`)
       .send(data)
       .use((req) => {
         req.agent(customAgent);
@@ -40,7 +40,7 @@ class CategoriesController {
   }
 
   deleteCategory(id: string) {
-    return request.delete("/categories/" + id).use((req) => {
+    return request.delete(`/categories/${id}`).use((req) => {
       req.agent(customAgent);
     });
   }
