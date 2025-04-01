@@ -9,9 +9,10 @@ import data, {
 
 import {
   brandDeleteInvalidErrorMessage,
-  brandUpdateErrorMessage,
+  brandTooShortErrorMessage,
   brandTooLongErrorMessage,
   brandNotFoundErrorMessage,
+  brandUpdateErrorMessage
 } from "../data/brand.error.message";
 
 describe("Brands", () => {
@@ -57,7 +58,7 @@ describe("Brands", () => {
       const response = await brandController.postBrand(minimumCharacterBrandData);
 
       expect(response.statusCode).toEqual(422);
-      expect(response.body.error).toEqual("Brand name is too short");
+      expect(response.body.error).toEqual(brandTooShortErrorMessage.error);
     });
 
     it("Business logic - Duplicate brand entries", async () => {
