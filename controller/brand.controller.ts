@@ -17,7 +17,7 @@ class BrandController {
   }
 
   getBrandById(id: string) {
-    return request.get("/brands/" + id).use((req) => {
+    return request.get(`/brands/${id}`).use((req) => {
       req.agent(customAgent);
     });
   }
@@ -33,7 +33,7 @@ class BrandController {
 
   putBrands(id: string, data: { [key: string]: string }) {
     return request
-      .put("/brands/" + id)
+      .put(`/brands/${id}`)
       .send(data)
       .use((req) => {
         req.agent(customAgent);
@@ -41,7 +41,7 @@ class BrandController {
   }
 
   deleteBrands(id: string) {
-    return request.delete("/brands/" + id).use((req) => {
+    return request.delete(`/brands/${id}`).use((req) => {
       req.agent(customAgent);
     });
   }
