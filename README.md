@@ -49,10 +49,22 @@ npm test
 npm run test:watch
 ```
 ### Run specific test suites
+
+####  Tests to retrieve, create, update and delete brands
 ```
 npm run test:brands
+```
+
+####  Tests to retrieve, create, update and delete categories
+```
 npm run test:categories
+```
+####  POC tests
+```
 npm run test:poc
+```
+####  Tests to upload files
+```
 npm run test:upload
 ```
 
